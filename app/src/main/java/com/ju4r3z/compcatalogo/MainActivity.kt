@@ -37,14 +37,23 @@ import com.ju4r3z.compcatalogo.ui.theme.CompCatalogoTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent   {
+        setContent {
             CompCatalogoTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MyStateExample()
+                    var show by remember { mutableStateOf(false) }
+
+                    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                        Button(onClick = { show = true }) {
+                            Text(text = "show dialog")
+                        }
+                        MyConfirmationDialog(
+                            show = show,
+                            onDismiss = { show = false },
+                        )
+                    }
                 }
             }
         }
@@ -183,6 +192,6 @@ fun MyBox() {
 @Composable
 fun GreetingPreview() {
     CompCatalogoTheme {
-        MyStateExample()
+        MyAlertDialog(true, {}, {})
     }
 }

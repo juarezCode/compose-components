@@ -12,7 +12,6 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldColors
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -65,7 +64,7 @@ fun MyTextFieldOutlined() {
         value = myText,
         onValueChange = { myText = it },
         modifier = Modifier.padding(24.dp),
-        label = { Text(text = "label")},
+        label = { Text(text = "label") },
         colors = TextFieldDefaults.outlinedTextFieldColors(
             focusedBorderColor = Color.Magenta,
             unfocusedBorderColor = Color.Green
@@ -73,7 +72,6 @@ fun MyTextFieldOutlined() {
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyTextFieldAdvance() {
     var myText by remember { mutableStateOf("") }
@@ -86,7 +84,6 @@ fun MyTextFieldAdvance() {
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyTextField() {
     var myText by remember { mutableStateOf("Jose") }
