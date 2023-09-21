@@ -17,14 +17,13 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
+import androidx.compose.material.Button
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -41,19 +40,9 @@ class MainActivity : ComponentActivity() {
             CompCatalogoTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    color = MaterialTheme.colorScheme.background
+                    color = MaterialTheme.colors.background
                 ) {
-                    var show by remember { mutableStateOf(false) }
-
-                    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                        Button(onClick = { show = true }) {
-                            Text(text = "show dialog")
-                        }
-                        MyConfirmationDialog(
-                            show = show,
-                            onDismiss = { show = false },
-                        )
-                    }
+                    ScaffoldComponent()
                 }
             }
         }

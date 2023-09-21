@@ -10,10 +10,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Divider
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
+import androidx.compose.material.AlertDialog
+import androidx.compose.material.Divider
+import androidx.compose.material.Text
+import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -51,7 +51,8 @@ fun MyConfirmationDialog(
                 Row(
                     Modifier
                         .align(Alignment.End)
-                        .padding(8.dp)) {
+                        .padding(8.dp)
+                ) {
                     TextButton(onClick = { }) {
                         Text(text = "CANCEL")
                     }

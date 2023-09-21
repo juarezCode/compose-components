@@ -6,10 +6,10 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.Text
+import androidx.compose.material.Button
+import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.LinearProgressIndicator
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -72,7 +72,7 @@ fun MyProgress() {
             LinearProgressIndicator(
                 Modifier.padding(top = 20.dp),
                 color = Color.Green,
-                trackColor = Color.Cyan
+                backgroundColor = Color.Cyan
             )
         }
         Button(

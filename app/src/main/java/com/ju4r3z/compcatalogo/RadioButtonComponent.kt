@@ -3,9 +3,9 @@ package com.ju4r3z.compcatalogo
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.RadioButton
-import androidx.compose.material3.RadioButtonDefaults
-import androidx.compose.material3.Text
+import androidx.compose.material.RadioButton
+import androidx.compose.material.RadioButtonDefaults
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -42,8 +42,8 @@ fun MyRadioButton() {
             colors = RadioButtonDefaults.colors(
                 selectedColor = Color.Red,
                 unselectedColor = Color.Yellow,
-                disabledSelectedColor = Color.Green,
-                disabledUnselectedColor = Color.Blue
+//                disabledSelectedColor = Color.Green,
+//                disabledUnselectedColor = Color.Blue
             )
         )
         Text(text = "radio")
