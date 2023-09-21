@@ -31,6 +31,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.ju4r3z.compcatalogo.navigation.Routes
+import com.ju4r3z.compcatalogo.navigation.Screen1
+import com.ju4r3z.compcatalogo.navigation.Screen2
+import com.ju4r3z.compcatalogo.navigation.Screen3
+import com.ju4r3z.compcatalogo.navigation.Screen4
+import com.ju4r3z.compcatalogo.navigation.Screen5
 import com.ju4r3z.compcatalogo.ui.theme.CompCatalogoTheme
 
 class MainActivity : ComponentActivity() {
@@ -42,7 +53,34 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     color = MaterialTheme.colors.background
                 ) {
-                    ScaffoldComponent()
+                    val navigationController = rememberNavController()
+                    NavHost(
+                        navController = navigationController,
+                        startDestination = Routes.Screen1.route
+                    ) {
+                        composable(Routes.Screen1.route) { Screen1(navigationController) }
+                        composable(Routes.Screen2.route) { Screen2(navigationController) }
+                        composable(Routes.Screen3.route) { Screen3(navigationController) }
+                        composable(
+                            route = Routes.Screen4.route,
+                            arguments = listOf(navArgument("age") { type = NavType.IntType })
+                        ) { backStackEntry ->
+                            Screen4(
+                                navigationController,
+                                backStackEntry.arguments?.getInt("age") ?: 0
+                            )
+                        }
+                        composable(
+                            route = Routes.Screen5.route,
+                            arguments = listOf(navArgument("name") { defaultValue = "Rodrigo" })
+                        ) { backStackEntry ->
+                            Screen5(
+                                navigationController,
+                                backStackEntry.arguments?.getString("name")
+                            )
+
+                        }
+                    }
                 }
             }
         }
